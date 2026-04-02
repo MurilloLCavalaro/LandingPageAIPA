@@ -1,0 +1,744 @@
+/* Reset básico para evitar espaços indesejados */
+body {
+    margin: 0;
+    padding-top: 80px; /* Evita que o conteúdo da página fique escondido atrás do header fixo */
+    font-family: Arial, sans-serif;
+    background-color: #0D0D0D;
+    color: #ffffff;
+}
+
+header {
+    background-color: #0D0D0D; /* Fundo preto */
+    display: flex;
+    justify-content: space-between; /* Espaça os elementos (Logo, Menu, Botão) */
+    align-items: center; /* Centraliza verticalmente */
+    padding: 10px 50px;
+    
+    /* Fixar no topo */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Garante que fique acima de outros elementos */
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+}
+
+/* Estilização do Logo */
+#logo img {
+    height: 60px; /* Ajuste conforme o tamanho da sua imagem */
+    display: block;
+}
+
+/* Estilização do Menu */
+#menu {
+    display: flex;
+    gap: 100px; /* Espaço entre os links */
+}
+
+#menu a {
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: lowercase; /* Igual à imagem: inicio, sobre... */
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+#menu a:hover {
+    color: #a259ff; /* Cor de destaque ao passar o mouse */
+}
+
+/* Estilização base do container do botão */
+#inscreva-se {
+    border: 2px solid #5a2d82;
+    padding: 10px 25px;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative; /* Necessário para posicionar a cortina */
+    overflow: hidden;   /* Esconde a cortina quando ela estiver fora do botão */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    transition: border-color 0.4s;
+    
+}
+
+/* O texto do botão */
+#inscreva-se h2 {
+    color: #a259ff;
+    margin: 0;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: bold;
+    position: relative; /* Garante que o texto fique acima da cortina */
+    z-index: 2;         /* Coloca o texto na frente */
+    transition: color 0.4s;
+}
+
+/* A "Cortina" (Pseudo-elemento) */
+#inscreva-se::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;          /* Começa com largura zero (escondida à esquerda) */
+    height: 100%;
+    background-color: #5a2d8266; /* Cor da cortina que vai preencher */
+    transition: width 0.4s ease-in-out; /* Velocidade do deslize */
+    z-index: 1;        /* Fica atrás do texto, mas na frente do fundo */
+}
+
+/* --- Efeito Hover --- */
+
+/* Quando passa o mouse, a cortina preenche 100% da largura */
+#inscreva-se:hover::before {
+    width: 100%;
+}
+
+/* Opcional: Muda a cor do texto para branco quando a cortina passar */
+#inscreva-se:hover h2 {
+    color: #ffffffce;
+}
+
+/* Opcional: Aumenta o brilho da borda no hover */
+#inscreva-se:hover {
+    border-color: #a259ff;
+}
+
+/*SECTION INICIO*/
+#inicio {
+    background-color: #0d0d0d; /* Fundo quase preto */
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10%;
+    gap: 80px; /* Espaço entre o texto e o formulário */
+    color: white;
+}
+
+/* --- LADO ESQUERDO (TEXTO) --- */
+#inicio > div:first-child {
+    max-width: 550px;
+}
+
+.title {
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.title-box-roxa {
+    background-color: #5a2d82;
+    padding: 10px 20px;
+    display: inline-block;
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #e0e0e0;
+}
+
+/* --- LADO DIREITO (FORMULÁRIO) --- */
+#cadastro {
+    border: 2px solid #2a1540; /* Borda roxa bem escura */
+    border-radius: 40px;
+    padding: 50px 40px;
+    background-color: transparent;
+    width: 100%;
+    max-width: 450px;
+}
+
+#form-cadastro {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+#form-cadastro input[type="text"] {
+    width: 100%;
+    padding: 18px 25px;
+    border-radius: 15px;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-sizing: border-box;
+}
+
+#form-cadastro input::placeholder {
+    color: #000;
+}
+
+/* Botão Enviar / Garantir Minha Vaga */
+#enviar {
+    margin-top: 20px;
+    background-color: #0d0d0d;
+    color: white;
+    border: 1px solid #5a2d82;
+    padding: 18px;
+    border-radius: 15px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#enviar:hover {
+    background-color: #5a2d82;
+    transform: scale(1.02);
+}
+
+/* Responsividade para Celulares */
+@media (max-width: 900px) {
+    #inicio {
+        flex-direction: column;
+        padding: 100px 20px;
+        text-align: center;
+        gap: 50px;
+    }
+    
+    .title { font-size: 2.5rem; }
+}
+
+/*SECTION SOBRE*/
+/* --- SEÇÃO SOBRE --- */
+#sobre {
+    background-color: #0d0d0d;
+    padding: 60px 5%;
+    text-align: center;
+    color: white;
+    overflow: hidden; /* Evita scroll horizontal indesejado */
+}
+
+/* Títulos e Divisores */
+.traco-branco {
+    border: 0;
+    border-top: 1px solid #ffffff;
+    margin: 40px 0;
+    opacity: 0.5;
+}
+
+#title-sobre {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+#title-sobre h1 {
+    font-size: 2.5rem;
+    font-weight: 900;
+}
+
+.title-roxa {
+    color: #a259ff;
+}
+
+#sobre h2 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 0 auto 60px auto;
+    color: #cccccc;
+}
+
+/* --- CARROSSEL / CARDS --- */
+.carrossel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: -40px; /* Sobreposição leve se desejar, ou ajuste para 0 */
+    perspective: 1000px;
+    padding: 40px 0;
+}
+
+/* Estilo comum a todos os cards */
+.card-esquerda, .card-principal, .card-direita {
+    background-color: #0d0d0d;
+    border: 1px solid #5a2d82;
+    padding: 40px 30px;
+    border-radius: 10px;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.icone {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: #a259ff;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #e0e0e0;
+}
+
+/* --- CARDS LATERAIS --- */
+.card-esquerda, .card-direita {
+    width: 320px;
+    min-height: 380px;
+    z-index: 1;
+    opacity: 0.5;
+    transform: scale(0.85); /* Menores */
+}
+
+/* --- CARD PRINCIPAL (DESTAQUE) --- */
+.card-principal {
+    width: 400px; /* Bem mais largo que os outros */
+    min-height: 300px; /* Mais alto */
+    z-index: 10;   /* Fica à frente */
+    opacity: 1;
+    transform: scale(1.05);
+    box-shadow: 0px 0px 40px rgba(162, 89, 255, 0.2); /* Brilho roxo */
+    border-width: 2px;
+    border-color: #a259ff;
+}
+
+.card-principal .icone {
+    font-size: 70px; /* Ícone maior no centro */
+}
+
+/* Efeito de Hover para interatividade */
+.card-principal:hover {
+    transform: scale(1.08);
+    box-shadow: 0px 0px 50px rgba(162, 89, 255, 0.4);
+}
+
+/* Responsividade Básica */
+@media (max-width: 1024px) {
+    .carrossel {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .card-esquerda, .card-principal, .card-direita {
+        width: 90%;
+        max-width: 400px;
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/*SECTION FERRAMENTAS*/
+/* --- SEÇÃO FERRAMENTAS --- */
+#ferramentas {
+    background-color: #0d0d0d;
+    color: white;
+    padding: 80px 10%;
+    text-align: center;
+}
+
+#titulo-ferramentas {
+    margin-bottom: 80px;
+}
+
+#titulo-ferramentas .title {
+    font-size: 2.2rem;
+    font-weight: 900;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+#titulo-ferramentas .title-box-roxa {
+    background-color: #5a2d82; /* Roxo escuro da caixa */
+    color: white;
+    display: inline-block;
+    padding: 10px 60px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* --- CONTAINER DOS CARDS --- */
+.container-ferramentas {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.card-ferramenta {
+    flex: 1; /* Faz com que os 3 cards ocupem o mesmo espaço */
+    padding: 0 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Ícones */
+.card-ferramenta .icone img {
+    width: 80px; /* Ajuste conforme necessário */
+    height: auto;
+    margin-bottom: 30px;
+}
+
+/* Texto descritivo */
+.card-ferramenta p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #ffffff;
+    text-align: left; /* Alinhamento conforme a imagem */
+}
+
+/* --- DIVISORES VERTICAIS --- */
+.divisor {
+    width: 1px;
+    background-color: #ffffff;
+    height: 300px; /* Altura da linha vertical */
+    opacity: 0.6;
+    align-self: center;
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 900px) {
+    .container-ferramentas {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .divisor {
+        width: 80%;
+        height: 1px; /* Linha vira horizontal no mobile */
+        margin: 40px 0;
+    }
+
+    .card-ferramenta {
+        padding: 0;
+    }
+    
+    .card-ferramenta p {
+        text-align: center;
+    }
+}
+
+/*SECTION INSTRUTORES*/
+/* --- SEÇÃO INSTRUTORES --- */
+#instrutores {
+    background-color: #0d0d0d;
+    color: white;
+    padding: 80px 10%;
+}
+
+#titulo-instrutores {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+#titulo-instrutores .title {
+    font-size: 2.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Container de cada instrutor */
+.container-instrutores {
+    display: flex;
+    flex-direction: column;
+    gap: 100px; /* Espaço entre os blocos de instrutores */
+}
+
+.instrutor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+}
+
+/* Estilização da Foto Circular */
+.instrutor .foto {
+    flex-shrink: 0; /* Impede que a foto amasse */
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 2px solid #5a2d82; /* Borda roxa da imagem */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.instrutor .foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Faz a foto preencher o círculo sem distorcer */
+}
+
+/* Informações do Texto */
+.instrutor .info {
+    max-width: 600px;
+}
+
+.instrutor .nome {
+    font-size: 2.8rem;
+    margin: 0;
+    font-weight: normal;
+}
+
+.instrutor .cargo {
+    color: #a259ff; /* Roxo claro */
+    font-size: 1.2rem;
+    margin: 5px 0 20px 0;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.instrutor p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: #ffffff;
+    text-align: justify;
+}
+
+/* Alinhamento específico para o segundo instrutor (Texto à esquerda, Foto à direita) */
+.reverso {
+    text-align: right;
+}
+
+.reverso p {
+    text-align: right; /* Alinha o texto à direita no segundo instrutor */
+}
+
+/* Responsividade para Celulares */
+@media (max-width: 900px) {
+    .instrutor, .reverso {
+        flex-direction: column !important; /* Empilha no mobile */
+        text-align: center;
+        gap: 30px;
+    }
+
+    .instrutor .foto {
+        width: 200px;
+        height: 200px;
+    }
+
+    .reverso p {
+        text-align: center;
+    }
+
+    .instrutor .nome {
+        font-size: 2rem;
+    }
+}
+
+/*SECTION AVALIAÇÃO*/
+#avaliacao {
+    background-color: #0d0d0d;
+    padding: 80px 10%;
+    color: white;
+    text-align: center;
+}
+
+#titulo-avaliacao .title {
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+
+.container-avaliacao {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 colunas */
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.card-avaliacao {
+    border: 1px solid #2a1540; /* Borda roxa escura */
+    padding: 30px 20px;
+    text-align: center;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 250px;
+}
+
+.card-avaliacao:hover {
+    border-color: #a259ff;
+    transition: 0.3s;
+}
+
+.nome-aluno {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    text-decoration: underline; /* Como na imagem */
+}
+
+.estrelas {
+    color: #ffcc00; /* Cor amarela das estrelas */
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.card-avaliacao p {
+    font-size: 0.95rem;
+    color: #e0e0e0;
+    font-style: italic;
+    line-height: 1.4;
+}
+
+/* No seu CSS, deixe assim: */
+.card-avaliacao.oculto {
+    display: none;
+}
+
+.data {
+    display: block;
+    margin-top: 20px;
+    text-align: right;
+    font-size: 0.85rem;
+    color: #aaa;
+}
+
+/* Lógica de esconder */
+.oculto {
+    display: none;
+}
+
+/* Estilo do Botão Ler Mais */
+.botao-container {
+    margin-top: 40px;
+}
+
+#btn-ler-mais {
+    background: transparent;
+    border: 2px solid #a259ff;
+    color: white;
+    padding: 12px 40px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+#btn-ler-mais:hover {
+    background: #a259ff;
+    color: black;
+}
+
+/* Responsividade */
+@media (max-width: 1100px) {
+    .container-avaliacao { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+    .container-avaliacao { grid-template-columns: 1fr; }
+}
+
+/*RODAPÉ*/
+/* --- FOOTER / RODAPÉ --- */
+#rodape {
+    background-color: #0d0d0d;
+    color: white;
+    padding: 20px 5%;
+    border-top: 1px solid #ffffff; /* Linha horizontal superior */
+    position: relative;
+}
+
+.container-rodape {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 40px;
+}
+
+/* Colunas Laterais */
+.rodape-col {
+    flex: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.rodape-col h2 {
+    font-size: 1.5rem;
+    font-weight: normal;
+    margin: 0;
+}
+
+/* Estilo específico para o nome do dev (Roxo) */
+.nome-dev {
+    color: #a259ff;
+}
+
+/* Caixas com Borda Roxa */
+.box-destaque {
+    border: 1px solid #5a2d82; /* Borda roxa escura */
+    padding: 10px 20px;
+    margin: 10px 0;
+    width: fit-content;
+}
+
+.box-destaque p {
+    margin: 0;
+    font-size: 1.1rem;
+    /* No lado direito o texto da caixa também é roxo na imagem */
+}
+
+.rodape-col:last-child .box-destaque p {
+    color: #a259ff;
+}
+
+/* Textos de contato */
+.rodape-col p {
+    margin: 0;
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+/* Centro (Logo e Linhas) */
+.rodape-centro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: 0 20px;
+}
+
+.rodape-centro img {
+    width: 120px; /* Ajuste conforme o tamanho da sua logo */
+    margin-bottom: 20px;
+}
+
+/* Linha Vertical (Simulada abaixo da logo conforme a imagem) */
+.rodape-centro::after {
+    content: "";
+    width: 1px;
+    height: 150px;
+    background-color: #ffffff;
+    opacity: 0.5;
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 900px) {
+    .container-rodape {
+        flex-direction: column;
+        gap: 60px;
+    }
+    
+    .rodape-centro::after {
+        display: none; /* Remove linha vertical no mobile */
+    }
+}
