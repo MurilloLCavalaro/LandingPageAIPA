@@ -176,15 +176,15 @@ a{
     box-sizing: border-box;
 }
 
-#form-cadastro input::placeholder {
-    color: #000;
+#form-cadastro :hover{
+    border: 1px solid #5a2d82;
 }
 
 /* Botão Enviar / Garantir Minha Vaga */
 #enviar {
     margin-top: 20px;
     background-color: #0d0d0d;
-    color: white;
+    color: #5a2d82;
     border: 1px solid #5a2d82;
     padding: 18px;
     border-radius: 15px;
@@ -192,11 +192,14 @@ a{
     font-weight: bold;
     text-transform: uppercase;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.6s ease;
 }
 
 #enviar:hover {
-    background-color: #5a2d82;
+    border: 1px solid white;
+    color: #ffffff;
+    background-color: #5a2d825b;
+    transition: all 1.0s ease;
     transform: scale(1.02);
 }
 
@@ -255,31 +258,57 @@ a{
     color: #cccccc;
 }
 
-/* --- CARROSSEL / CARDS --- */
+/* --- CARROSSEL / CONTAINER --- */
 .carrossel {
     display: flex;
-    align-items: center;
+    align-items: stretch; /* Garante que todos tenham a mesma altura */
     justify-content: center;
-    gap: -40px; /* Sobreposição leve se desejar, ou ajuste para 0 */
+    gap: 20px; 
     perspective: 1000px;
     padding: 40px 0;
 }
 
-/* Estilo comum a todos os cards */
-.card-esquerda, .card-principal, .card-direita {
+/* --- ESTILO BASE DOS CARDS (TODOS IGUAIS) --- */
+.card {
     background-color: #0d0d0d;
     border: 1px solid #5a2d82;
     padding: 40px 30px;
     border-radius: 10px;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 350px; /* Largura fixa igual para todos */
+    transition: all 0.4s ease-in-out;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
-.icone {
-    font-size: 50px;
+/* Ajuste das imagens dos ícones */
+.icone img {
+    height: 60px;
     margin-bottom: 20px;
 }
 
+/* --- EFEITO HOVER MÁGICO --- */
+
+/* 1. Quando o mouse entra no carrossel, todos os cards perdem opacidade e ganham blur */
+.carrossel:hover .card {
+    opacity: 0.4;
+    filter: blur(4px);
+    transform: scale(0.95);
+}
+
+/* 2. O card específico que está com o mouse em cima "salta" e fica nítido */
+.carrossel .card:hover {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1.05); /* Projeta o card para frente */
+    border-color: #a259ff;
+    box-shadow: 0px 0px 40px rgba(162, 89, 255, 0.5);
+    z-index: 10;
+}
+
+/* Títulos e textos dentro dos cards */
 h3 {
     color: #a259ff;
     margin-bottom: 15px;
@@ -290,37 +319,6 @@ p {
     font-size: 0.95rem;
     line-height: 1.5;
     color: #e0e0e0;
-}
-
-/* --- CARDS LATERAIS --- */
-.card-esquerda, .card-direita {
-    width: 320px;
-    min-height: 380px;
-    z-index: 1;
-    opacity: 0.5;
-    transform: scale(0.85); /* Menores */
-}
-
-/* --- CARD PRINCIPAL (DESTAQUE) --- */
-.card-principal {
-    width: 400px; /* Bem mais largo que os outros */
-    min-height: 300px; /* Mais alto */
-    z-index: 10;   /* Fica à frente */
-    opacity: 1;
-    transform: scale(1.05);
-    box-shadow: 0px 0px 40px rgba(162, 89, 255, 0.2); /* Brilho roxo */
-    border-width: 2px;
-    border-color: #a259ff;
-}
-
-.card-principal .icone {
-    font-size: 70px; /* Ícone maior no centro */
-}
-
-/* Efeito de Hover para interatividade */
-.card-principal:hover {
-    transform: scale(1.08);
-    box-shadow: 0px 0px 50px rgba(162, 89, 255, 0.4);
 }
 
 /* Responsividade Básica */
@@ -376,11 +374,20 @@ p {
 }
 
 .card-ferramenta {
-    flex: 1; /* Faz com que os 3 cards ocupem o mesmo espaço */
+    flex: 1;
     padding: 0 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    
+    /* NOVAS PROPRIEDADES PARA A ANIMAÇÃO */
+    opacity: 0;                  /* Começa invisível */
+    transform: translateY(40px); /* Começa 40px abaixo da posição original */
+    transition: all 0.8s ease;   /* Define a suavidade da animação */
+}
+.card-ferramenta.show {
+    opacity: 1;
+    transform: translateY(0);    /* Volta para a posição original */
 }
 
 /* Ícones */
@@ -435,6 +442,7 @@ p {
     background-color: #0d0d0d;
     color: white;
     padding: 80px 10%;
+    overflow: hidden; 
 }
 
 #titulo-instrutores {
@@ -461,6 +469,17 @@ p {
     align-items: center;
     justify-content: center;
     gap: 60px;
+    
+    opacity: 0;
+    transform: translateX(-150px); /* Começa fora à esquerda */
+    transition: all 1.2s ease-out;
+}
+.instrutor.reverso {
+    transform: translateX(150px); /* Começa fora à direita */
+}
+.instrutor.show-instrutor {
+    opacity: 1;
+    transform: translateX(0); /* Volta para o centro */
 }
 
 /* Estilização da Foto Circular */
@@ -519,10 +538,15 @@ p {
 
 /* Responsividade para Celulares */
 @media (max-width: 900px) {
-    .instrutor, .reverso {
-        flex-direction: column !important; /* Empilha no mobile */
+    .instrutor, .instrutor.reverso {
+        transform: translateY(50px); /* No mobile, vem de baixo */
+        flex-direction: column !important;
         text-align: center;
         gap: 30px;
+    }
+    
+    .instrutor.show-instrutor {
+        transform: translateY(0);
     }
 
     .instrutor .foto {

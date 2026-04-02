@@ -9,7 +9,7 @@
 <body>
     <header>
         <div id="logo">
-            <img src="/AIPA_logo.png" alt="LOGO AIPA">
+            <img src="img/AIPA_logo.png" alt="LOGO AIPA">
         </div>
          <div id="menu">
             <a href="#inicio">Inicio</a>
@@ -30,9 +30,9 @@
         </div>
         <div id="cadastro">
             <form action="submit" id="form-cadastro">
-                <input type="text" placeholder="nome">
-                <input type="text" placeholder="email">
-                <input type="text" placeholder="telefone">
+                <input type="text" placeholder="nome" required>
+                <input type="text" placeholder="email" required>
+                <input type="text" placeholder="telefone" required>
                 <input type="submit" placeholder="ENVIAR" id="enviar">
             </form>
         </div>
@@ -53,31 +53,22 @@
         <div><hr class="traco-branco"></div>
 
         <div class="carrossel">
-            <!-- Caixa esquerda -->
-            <div class="card-esquerda">
-                <div class="icone">🎯</div>
+            <div class="card card-esquerda">
+                <div class="icone"><img src="img/iconeObjetivo.png" alt="OBJETIVO"></div>
                 <h3>CAPACITAÇÃO</h3>
-                <p>
-                Nosso foco é desenvolver competências essenciais para a vida profissional, preparando os participantes para novas oportunidades e desafios no mercado de trabalho.
-                </p>
+                <p>Nosso foco é desenvolver competências essenciais para a vida profissional.</p>
             </div>
 
-            <!-- Caixa principal -->
-            <div class="card-principal">
-                <div class="icone">💻</div>
+            <div class="card card-principal">
+                <div class="icone"><img src="img/iconeComputador.png" alt="TECNOLOGIA"></div>
                 <h3>TECNOLOGIA</h3>
-                <p>
-                Utilizamos recursos tecnológicos e ferramentas digitais para preparar os alunos para as exigências do mercado atual, desenvolvendo habilidades práticas em informática e uso de sistemas.
-                </p>
+                <p>Utilizamos recursos tecnológicos para preparar os alunos para o mercado atual.</p>
             </div>
 
-            <!-- Caixa direita -->
-            <div class="card-direita">
-                <div class="icone">📚</div>
-                <h3>DIDÁTICO</h3>
-                <p>
-                Oferecemos um ambiente de ensino dinâmico e acessível, com conteúdos organizados para facilitar a compreensão e promover a evolução contínua dos alunos.
-                </p>
+            <div class="card card-direita">
+                <div class="icone"><img src="img/iconeLivros.png" alt="CONHECIMENTO"></div>
+                <h3>DIDÁTICA</h3>
+                <p>Oferecemos um ambiente de ensino dinâmico e acessível para evolução contínua.</p>
             </div>
         </div>
     </section>
@@ -93,7 +84,7 @@
             <!-- Excel -->
             <div class="card-ferramenta">
                 <div class="icone">
-                    <img src="img/excel.png" alt="Excel">
+                    <img src="img/iconeExcel.png" alt="Excel">
                 </div>
                 <p>
                     Aprenda a organizar, calcular e analisar dados com planilhas inteligentes, 
@@ -107,7 +98,7 @@
             <!-- Word -->
             <div class="card-ferramenta">
                 <div class="icone">
-                    <img src="img/word.png" alt="Word">
+                    <img src="img/iconeWord.png" alt="Word">
                 </div>
                 <p>
                     Domine a criação e edição de documentos profissionais, como relatórios, cartas, currículos e trabalhos, 
@@ -121,7 +112,7 @@
             <!-- PowerPoint -->
             <div class="card-ferramenta">
                 <div class="icone">
-                    <img src="img/powerpoint.png" alt="PowerPoint">
+                    <img src="img/iconePowerpoint.png" alt="PowerPoint">
                 </div>
                 <p>
                     Desenvolva apresentações modernas e impactantes, com slides bem estruturados, visuais atrativos 
@@ -208,47 +199,48 @@
             </div>
             
             <div class="card-avaliacao">
-                <h3 class="nome-aluno">José Luis</h3>
+                <h3 class="nome-aluno">Miguel Formigari</h3>
                 <div class="estrelas">★★★★★</div>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor.</p>
-                <span class="data">01/04/2026</span>
+                <p>A guarda me ajudou muito na parte técnica de computação.<br>
+                    E me ajudou a me comportar em um local de trabalho.</p>
+                <span class="data">30/03/2026</span>
             </div>
 
             <div class="card-avaliacao">
-                <h3 class="nome-aluno">José Luis</h3>
+                <h3 class="nome-aluno">Raica D'Arc Lazari</h3>
                 <div class="estrelas">★★★★★</div>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor.</p>
+                <p>"A guarda me ajudou na comunicação e perder a vergonha e começar a minha vida profissional e adoro fofocar com Murillo"</p>
                 <span class="data">01/04/2026</span>
             </div>
             <div class="card-avaliacao">
-                <h3 class="nome-aluno">José Luis</h3>
+                <h3 class="nome-aluno">Kerollyn Nicoly Sebastiao Pinheiro</h3>
                 <div class="estrelas">★★★★★</div>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor.</p>
-                <span class="data">01/04/2026</span>
+                <p>"A guarda me ajudou eu aprender bastante coisas em tecnologia e perder a vergonha e começar a minha vida profissional e tambem amo fofocar com o Murillo"</p>
+                <span class="data">31/03/2026</span>
             </div>
             <div class="card-avaliacao oculto">
-                <h3 class="nome-aluno">José Luis</h3>
-                <div class="estrelas">★★★★★</div>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor.</p>
+                <h3 class="nome-aluno">Andrey Jose de Oliveira Fernandes</h3>
+                <div class="estrelas">★★★★</div>
+                <p>"No curso de preparação ao trabalho, a AIPA me ensinou a utilizar plataformas como excel,word e powerpoint, além das aulas para convívio e comunicação"</p>
                 <span class="data">02/04/2026</span>
             </div>
             <div class="card-avaliacao oculto">
-                <h3 class="nome-aluno">José Luis</h3>
+                <h3 class="nome-aluno">Lorrana Larissa Garcia</h3>
                 <div class="estrelas">★★★★★</div>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor.</p>
+                <p>"O curso de capacitação sa AIPA, me ajudou a aprender várias funções do excel e outras plataformas, e também melhorei minha comunicação nas aulas de como se portar dentro de uma empresa."</p>
                 <span class="data">02/04/2026</span>
             </div>
             <div class="card-avaliacao oculto">
-                <h3 class="nome-aluno">José Luis</h3>
+                <h3 class="nome-aluno">Ana Beatriz de Souza Nicolau</h3>
                 <div class="estrelas">★★★★★</div>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor.</p>
-                <span class="data">02/04/2026</span>
+                <p>"Gostei muito do curso e sempre que tinha duvida eles me ajudavam, me sinto preparada para o trabalho!"</p>
+                <span class="data">29/03/2026</span>
             </div>
             <div class="card-avaliacao oculto">
-                <h3 class="nome-aluno">José Luis</h3>
-                <div class="estrelas">★★★★★</div>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor.</p>
-                <span class="data">02/04/2026</span>
+                <h3 class="nome-aluno">Felipe Giraldi</h3>
+                <div class="estrelas">★★★★</div>
+                <p>"Curso me ajudou em tenologia e para arrumar um trabalho"</p>
+                <span class="data">29/03/2026</span>
             </div>
         </div>
 
@@ -274,7 +266,7 @@
 
             <!-- Logo central -->
             <div class="rodape-centro">
-                <img src="/AIPA_logo.png" alt="Logo AIPA">
+                <img src="img/AIPA_logo.png" alt="Logo AIPA">
             </div>
 
             <!-- Lado direito -->
@@ -287,6 +279,7 @@
 
                 <p>cavalaromurillo@gmail.com</p>
                 <p>(19) 998830539</p>
+                <p>Abril - 2026</p>
             </div>
         </div>
     </footer>
@@ -315,6 +308,49 @@
                 // Opcional: Faz a página subir suavemente para o início da seção ao fechar
                 document.getElementById('avaliacao').scrollIntoView({ behavior: 'smooth' });
             }
+        });
+
+
+
+        //SURGIR DE FORMA SUAVE OS CARDS FERRAMENTAS
+        // Configuração do observador de scroll
+        const observerOptions = {
+            threshold: 0.1 // Dispara quando 10% do card estiver visível
+        };
+
+        const ferramentaObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    // Adiciona a classe que dispara a transição CSS
+                    entry.target.classList.add('show');
+                    // Opcional: para de observar após animar uma vez
+                    ferramentaObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Seleciona e observa cada card de ferramenta
+        document.querySelectorAll('.card-ferramenta').forEach(card => {
+            ferramentaObserver.observe(card);
+        });
+
+
+        // --- ANIMAÇÃO DOS INSTRUTORES ---
+
+        const instrutorObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    // Adiciona a classe que move para o centro
+                    entry.target.classList.add('show-instrutor');
+                    // Para de observar para a animação ocorrer só uma vez
+                    instrutorObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 }); // Dispara quando 20% do instrutor estiver visível
+
+        // Seleciona todos os blocos de instrutor (tanto normais quanto reversos)
+        document.querySelectorAll('.instrutor').forEach(inst => {
+            instrutorObserver.observe(inst);
         });
     </script>
 </body>
